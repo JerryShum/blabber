@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Noto_Sans } from 'next/font/google';
 import { Josefin_Sans } from 'next/font/google';
 import './globals.css';
+import Navbar from '@/components/common/Navbar';
 
 const notoSans = Noto_Sans({
    subsets: ['latin'],
@@ -26,9 +27,10 @@ export default function RootLayout({
    return (
       <html lang="en">
          <body
-            className={`${josefinSans.variable} ${notoSans.variable} antialiased`}
+            className={`${josefinSans.variable} ${notoSans.variable} antialiased lg:px-60`}
          >
-            {children}
+            <Navbar />
+            <main>{children}</main>
          </body>
       </html>
    );
