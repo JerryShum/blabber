@@ -12,6 +12,8 @@ export default function LoginPage() {
                height={100}
                width={500}
                alt="image of someone writing on a laptop"
+               placeholder="blur"
+               loading="lazy"
             />
          </div>
       </div>
