@@ -11,6 +11,15 @@ const paths = {
    userPage(username: string) {
       return `/user/${username}`;
    },
+   aboutPage() {
+      return '/about';
+   },
+   explorePage() {
+      return '/explore';
+   },
+   topicPage(topicName: string) {
+      return `/explore/${topicName}`;
+   },
 };
 
 export default paths;
