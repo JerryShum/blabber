@@ -11,7 +11,7 @@ export default function NavLinks() {
                   className={buttonVariants({ variant: 'link' })}
                   href={paths.home()}
                >
-                  <span className="text-base">Home</span>
+                  <span className="text-base font-josefin">Home</span>
                </Link>
             </li>
             <li>
@@ -19,7 +19,7 @@ export default function NavLinks() {
                   className={buttonVariants({ variant: 'link' })}
                   href={paths.explorePage()}
                >
-                  <span className="text-base">Explore</span>
+                  <span className="text-base font-josefin">Explore</span>
                </Link>
             </li>
             <li>
@@ -27,7 +27,7 @@ export default function NavLinks() {
                   className={buttonVariants({ variant: 'link' })}
                   href={paths.aboutPage()}
                >
-                  <span className="text-base">About Us</span>
+                  <span className="text-base font-josefin">About Us</span>
                </Link>
             </li>
          </ul>
