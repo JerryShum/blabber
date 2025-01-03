@@ -3,6 +3,7 @@ import { Noto_Sans } from 'next/font/google';
 import { Josefin_Sans } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/nav/Navbar';
+import Providers from './Providers';
 
 const notoSans = Noto_Sans({
    subsets: ['latin'],
@@ -29,8 +30,10 @@ export default function RootLayout({
          <body
             className={`${josefinSans.variable} ${notoSans.variable} antialiased lg:px-60 w-screen relative`}
          >
-            <Navbar />
-            <main>{children}</main>
+            <Providers>
+               <Navbar />
+               <main>{children}</main>
+            </Providers>
          </body>
       </html>
    );
