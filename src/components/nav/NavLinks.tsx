@@ -17,9 +17,9 @@ export default function NavLinks() {
             <li>
                <Link
                   className={buttonVariants({ variant: 'link' })}
-                  href={paths.aboutPage()}
+                  href={paths.explorePage()}
                >
-                  <span className="text-base">About Us</span>
+                  <span className="text-base">Explore</span>
                </Link>
             </li>
             <li>
