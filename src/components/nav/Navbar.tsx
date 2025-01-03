@@ -9,6 +9,7 @@ export default function Navbar() {
          <Logo />
          <NavLinks />
          <SearchBar />
+
          <NavAuth />
       </nav>
    );

@@ -5,6 +5,7 @@ import { ReactNode } from 'react';
 import LoginButton from '../common/LoginButton';
 import SignUpButton from '../common/SignUpButton';
 import NavAuthAvatar from './NavAuthAvatar';
+import { Skeleton } from '../UI/skeleton';
 
 export default function NavAuth() {
    const session = useSession();
@@ -13,7 +14,7 @@ export default function NavAuth() {
 
    //! If session is loading, don't show anything (prevents weird behaviour)
    if (session.status === 'loading') {
-      authContent = null;
+      authContent = <Skeleton className="h-12 w-12 rounded-full" />;
    } else if (!session.data?.user || !session.data) {
       //! If there is no session (user is currently not logged in)
       authContent = (
