@@ -16,7 +16,11 @@ export default function NavAuthAvatar({ user }: NavAuthAvatarProps) {
                <AvatarFallback>CN</AvatarFallback>
             </Avatar>
          </PopoverTrigger>
-         <PopoverContent className="w-auto p-4" align="center" side="bottom">
+         <PopoverContent
+            className="w-auto p-4 rounded-xl"
+            align="center"
+            side="bottom"
+         >
             <div className="flex flex-col gap-4 items-center">
                <h3 className=" font-sans">{user.email}</h3>
                <Avatar className="h-16 w-16">
