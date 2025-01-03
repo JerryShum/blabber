@@ -23,7 +23,7 @@ export default function NavAuth() {
          </div>
       );
    } else if (session.data?.user) {
-      authContent = <NavAuthAvatar />;
+      authContent = <NavAuthAvatar user={session.data.user} />;
    }
 
    return authContent;
