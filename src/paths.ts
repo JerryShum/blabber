@@ -20,6 +20,12 @@ const paths = {
    topicPage(topicName: string) {
       return `/explore/${topicName}`;
    },
+   LoginPage() {
+      return '/login';
+   },
+   SignUpPage() {
+      return '/signup';
+   },
 };
 
 export default paths;
