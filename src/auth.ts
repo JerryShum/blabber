@@ -1,5 +1,5 @@
 import NextAuth from 'next-auth';
-import { prisma } from '@/db';
+import prisma from '@/db';
 import { PrismaAdapter } from '@auth/prisma-adapter';
 import GitHub from 'next-auth/providers/github';
 
