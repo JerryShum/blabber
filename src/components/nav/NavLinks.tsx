@@ -5,7 +5,7 @@ import { buttonVariants } from '../UI/button';
 export default function NavLinks() {
    return (
       <nav>
-         <ul className="flex items-center gap-2 ">
+         <ul className="flex items-center gap-1 ">
             <li>
                <Link
                   className={buttonVariants({ variant: 'link' })}
