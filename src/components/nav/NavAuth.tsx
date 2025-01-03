@@ -4,6 +4,7 @@ import { useSession } from 'next-auth/react';
 import { ReactNode } from 'react';
 import LoginButton from '../common/LoginButton';
 import SignUpButton from '../common/SignUpButton';
+import NavAuthAvatar from './NavAuthAvatar';
 
 export default function NavAuth() {
    const session = useSession();
@@ -21,6 +22,8 @@ export default function NavAuth() {
             <SignUpButton />
          </div>
       );
+   } else if (session.data?.user) {
+      authContent = <NavAuthAvatar />;
    }
 
    return authContent;
