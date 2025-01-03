@@ -15,7 +15,7 @@ export default function Logo() {
                />
             </div>
 
-            <h1 className="font-josefin text-3xl font-semibold bg-gradient-to-r bg-clip-text text-transparent from-zinc-800 to-zinc-950 leading-none">
+            <h1 className="font-josefin text-3xl font-semibold text-foreground leading-none">
                Blabber
             </h1>
          </div>
