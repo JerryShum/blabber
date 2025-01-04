@@ -19,7 +19,8 @@ model Blurb {
   authorId  String
   author    User      @relation(fields: [authorId], references: [id])
   createdAt DateTime  @default(now())
-  image     String    
+  image     String  
+  title     String
 }
 
 
