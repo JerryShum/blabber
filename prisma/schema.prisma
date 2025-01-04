@@ -21,6 +21,7 @@ model Blurb {
   createdAt DateTime  @default(now())
   image     String  
   title     String
+  estimatedRead     String 
 }
 
 
