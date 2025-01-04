@@ -8,8 +8,8 @@ const paths = {
    blurbCreate() {
       return `/blurbs/new`;
    },
-   userPage(username: string) {
-      return `/user/${username}`;
+   userPage(userID: string) {
+      return `/user/${userID}`;
    },
    aboutPage() {
       return '/about';
