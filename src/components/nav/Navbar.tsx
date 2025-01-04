@@ -6,7 +6,7 @@ import { DarkModeToggle } from './DarkModeToggle';
 
 export default function Navbar() {
    return (
-      <nav className="py-6 absolute top-0 left-0 flex gap-14 items-center justify-evenly w-full px-60">
+      <nav className="py-2 flex gap-14 items-center justify-center">
          <Logo />
          <NavLinks />
          <SearchBar />
