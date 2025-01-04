@@ -30,13 +30,7 @@ export default function RootLayout({
          <body
             className={`${josefinSans.variable} ${notoSans.variable} antialiased lg:px-60 w-screen relative`}
          >
-            <Providers
-               themeProviderProps={{
-                  attribute: 'class',
-                  defaultTheme: 'light',
-                  enableSystem: true,
-               }}
-            >
+            <Providers>
                <Navbar />
                <main>{children}</main>
             </Providers>
