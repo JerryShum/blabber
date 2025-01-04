@@ -28,11 +28,13 @@ export default function RootLayout({
    return (
       <html lang="en">
          <body
-            className={`${josefinSans.variable} ${notoSans.variable} antialiased lg:px-60 w-screen relative`}
+            className={`${josefinSans.variable} ${notoSans.variable} antialiased `}
          >
             <Providers>
-               <Navbar />
-               <main>{children}</main>
+               <div className="lg:px-60 w-screen relative">
+                  <Navbar />
+                  <main>{children}</main>
+               </div>
             </Providers>
          </body>
       </html>
