@@ -21,7 +21,7 @@ export default function Home() {
          <HeroBlurb blurb={dummyBlurb} />
          <div className="mt-10">
             <h1 className="font-josefin text-3xl">Top Blurbs:</h1>
-            <div className="grid grid-cols-2 gap-10 w-full">
+            <div className="grid grid-cols-3 gap-10 w-full mt-2">
                <DisplayBlurb blurb={dummyBlurb} />
                <DisplayBlurb blurb={dummyBlurb} />
                <DisplayBlurb blurb={dummyBlurb} />
