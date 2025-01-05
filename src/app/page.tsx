@@ -1,3 +1,4 @@
+import DisplayBlurb from '@/components/blurbs/DisplayBlurb';
 import HeroBlurb from '@/components/blurbs/HeroBlurb';
 
 import { Blurb } from '@prisma/client';
@@ -17,8 +18,14 @@ const dummyBlurb: Blurb = {
 export default function Home() {
    return (
       <div className="">
-         <div className="">
-            <HeroBlurb blurb={dummyBlurb} />
+         <HeroBlurb blurb={dummyBlurb} />
+         <div className="mt-10">
+            <h1 className="font-josefin text-3xl">Top Blurbs:</h1>
+            <div className="grid grid-cols-2 gap-10 w-full">
+               <DisplayBlurb blurb={dummyBlurb} />
+               <DisplayBlurb blurb={dummyBlurb} />
+               <DisplayBlurb blurb={dummyBlurb} />
+            </div>
          </div>
       </div>
    );
