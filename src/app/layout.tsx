@@ -31,7 +31,7 @@ export default function RootLayout({
             className={`${josefinSans.variable} ${notoSans.variable} antialiased `}
          >
             <Providers>
-               <div className="lg:px-60 w-screen relative">
+               <div className="lg:px-60 relative">
                   <Navbar />
                   <main>{children}</main>
                </div>
