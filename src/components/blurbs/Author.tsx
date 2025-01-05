@@ -11,7 +11,7 @@ interface AuthorProps {
 export default function Author({ user }: AuthorProps): ReactNode {
    return (
       <Link href={paths.userPage(user.id)}>
-         <div className="flex items-end gap-2">
+         <div className="flex items-end gap-2 justify-end">
             <Avatar>
                <AvatarImage src={user.image ?? ''} alt="Author Avatar" />
                <AvatarFallback> </AvatarFallback>
