@@ -4,6 +4,7 @@ import { Josefin_Sans } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/nav/Navbar';
 import Providers from './Providers';
+import Footer from '@/components/footer/Footer';
 
 const notoSans = Noto_Sans({
    subsets: ['latin'],
@@ -34,6 +35,7 @@ export default function RootLayout({
                <div className="lg:px-60 relative">
                   <Navbar />
                   <main>{children}</main>
+                  <Footer />
                </div>
             </Providers>
          </body>
