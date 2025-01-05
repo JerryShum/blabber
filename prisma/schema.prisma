@@ -15,6 +15,7 @@ datasource db {
 
 model Blurb {
   id        Int       @id @default(autoincrement())
+  description String
   content   String    // Use `String` for content
   authorId  String
   author    User      @relation(fields: [authorId], references: [id])
