@@ -2,7 +2,7 @@ const paths = {
    home() {
       return '/';
    },
-   blurbIDPage(blurbID: string) {
+   blurbIDPage(blurbID: number) {
       return `/blurbs/${blurbID}`;
    },
    blurbCreate() {
