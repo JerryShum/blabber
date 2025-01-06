@@ -70,10 +70,14 @@ export default function DataPoint({
                className={`${backgroundColours[colour]} flex flex-col justify-center items-center`}
             >
                <CardHeader className="p-0 text-center w-full">
-                  <CardTitle className="text-black">{children}</CardTitle>
+                  <CardTitle className="text-black font-josefin text-lg tracking-tighter">
+                     {children}
+                  </CardTitle>
                </CardHeader>
                <CardContent className="p-0">
-                  <p className={`${textColours[colour]} ${dataSize[size]} `}>
+                  <p
+                     className={`${textColours[colour]} ${dataSize[size]} font-noto`}
+                  >
                      {dataValue}
                   </p>
                </CardContent>
@@ -86,10 +90,14 @@ export default function DataPoint({
                className={`${backgroundColours[colour]} flex flex-col justify-center items-center`}
             >
                <CardHeader className="p-0 text-center w-full">
-                  <CardTitle className="text-black">{children}</CardTitle>
+                  <CardTitle className="text-black font-josefin text-lg tracking-tighter">
+                     {children}
+                  </CardTitle>
                </CardHeader>
                <CardContent className="p-0">
-                  <p className={`${textColours[colour]} ${dataSize[size]} `}>
+                  <p
+                     className={`${textColours[colour]} ${dataSize[size]} font-noto`}
+                  >
                      {dataValue}
                   </p>
                </CardContent>
@@ -103,12 +111,16 @@ export default function DataPoint({
                className={`${backgroundColours[colour]} flex flex-col justify-center items-center`}
             >
                <CardContent className="p-0">
-                  <p className={`${textColours[colour]} ${dataSize[size]} `}>
+                  <p
+                     className={`${textColours[colour]} ${dataSize[size]} font-noto`}
+                  >
                      {dataValue}
                   </p>
                </CardContent>
                <CardHeader className="p-0 text-center w-full">
-                  <CardTitle className="text-black">{children}</CardTitle>
+                  <CardTitle className="text-black font-josefin text-lg tracking-tighter ">
+                     {children}
+                  </CardTitle>
                </CardHeader>
             </Card>
          );
@@ -120,10 +132,14 @@ export default function DataPoint({
                className={`${backgroundColours[colour]} flex flex-col justify-center items-center`}
             >
                <CardHeader className="p-0 text-start w-full">
-                  <CardTitle className="text-black">{children}</CardTitle>
+                  <CardTitle className="text-black font-josefin text-lg tracking-tighter">
+                     {children}
+                  </CardTitle>
                </CardHeader>
                <CardContent className="p-0">
-                  <p className={`${textColours[colour]} ${dataSize[size]} `}>
+                  <p
+                     className={`${textColours[colour]} ${dataSize[size]} font-noto`}
+                  >
                      {dataValue}
                   </p>
                </CardContent>
