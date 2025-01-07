@@ -30,6 +30,14 @@ export default function NavLinks() {
                   <span className="text-base font-josefin">About Us</span>
                </Link>
             </li>
+            <li>
+               <Link
+                  className={buttonVariants({ variant: 'link' })}
+                  href={paths.aboutPage()}
+               >
+                  <span className="text-base font-josefin">About Us</span>
+               </Link>
+            </li>
          </ul>
       </nav>
    );
