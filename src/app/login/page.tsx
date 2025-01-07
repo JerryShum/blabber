@@ -1,11 +1,16 @@
 import LoginForm from '@/components/login/LoginForm';
 import Image from 'next/image';
 import aesthetic from '/public/aestheitc2.png';
+import { auth } from '@/auth';
+import { redirect } from 'next/navigation';
 
-export default function LoginPage() {
+export default async function LoginPage() {
+   const session = await auth();
+   if (session) redirect('/');
+
    return (
-      <div className="w-full flex items-center justify-center">
-         <div className="mt-40 flex items-center gap-10">
+      <div className="w-full flex items-center justify-center h-screen">
+         <div className="flex items-center gap-10">
             <LoginForm />
             <Image
                src={aesthetic}
