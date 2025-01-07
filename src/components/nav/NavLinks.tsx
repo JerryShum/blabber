@@ -33,9 +33,9 @@ export default function NavLinks() {
             <li>
                <Link
                   className={buttonVariants({ variant: 'link' })}
-                  href={paths.aboutPage()}
+                  href={paths.CreatePage()}
                >
-                  <span className="text-base font-josefin">About Us</span>
+                  <span className="text-base font-josefin">Create Blurb</span>
                </Link>
             </li>
          </ul>
