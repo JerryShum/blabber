@@ -26,6 +26,9 @@ const paths = {
    SignUpPage() {
       return '/signup';
    },
+   CreatePage() {
+      return '/create';
+   },
 };
 
 export default paths;
