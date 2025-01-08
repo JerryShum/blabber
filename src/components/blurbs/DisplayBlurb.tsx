@@ -20,7 +20,7 @@ const dummyUser: User = {
 
 export default function DisplayBlurb({ blurb }: DisplayBlurbProps): ReactNode {
    return (
-      <div className="rounded-xl ">
+      <div className="rounded-xl hover:scale-105 transition-all duration-300">
          <Link href={paths.blurbIDPage(blurb.id)}>
             <div className="relative">
                <AspectRatio ratio={16 / 9}>

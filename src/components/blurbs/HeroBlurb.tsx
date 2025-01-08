@@ -19,7 +19,7 @@ const dummyUser: User = {
 };
 export default function HeroBlurb({ blurb }: HeroBlurbProps): ReactNode {
    return (
-      <div>
+      <div className="hover:brightness-[85%] transition-all duration-200 hover:scale-[101%]">
          <Link href={paths.blurbIDPage(blurb.id)}>
             <div className="relative">
                <AspectRatio ratio={16 / 6}>
