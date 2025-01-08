@@ -32,7 +32,7 @@ export default function RootLayout({
             className={`${josefinSans.variable} ${notoSans.variable} antialiased `}
          >
             <Providers>
-               <div className="sm:px-10 md:px-20 xl:px-60 relative">
+               <div className="sm:px-10 md:px-20 xl:px-30 2xl:px-60 relative">
                   <Navbar />
                   <main>{children}</main>
                   <Footer />
