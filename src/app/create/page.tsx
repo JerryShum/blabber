@@ -1,4 +1,5 @@
 import { auth } from '@/auth';
+import CreateBlurbForm from '@/components/blurbs/CreateBlurbForm';
 import NotAuthenticated from '@/components/common/NotAuthenticated';
 
 export default async function CreatePage() {
@@ -6,7 +7,10 @@ export default async function CreatePage() {
    if (!session) return <NotAuthenticated />;
    return (
       <div>
-         <h1>Create Blurb</h1>
+         <h1 className="font-josefin text-3xl mt-10 font-semibold text-primary">
+            Create a Blurb
+         </h1>
+         <CreateBlurbForm />
       </div>
    );
 }
