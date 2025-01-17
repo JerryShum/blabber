@@ -8,8 +8,10 @@ import "@uiw/react-md-editor/markdown-editor.css";
 import "@uiw/react-markdown-preview/markdown.css";
 import dynamic from "next/dynamic";
 import { useState } from "react";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 import * as commands from "@uiw/react-md-editor/commands";
+import { createBlurbSchema } from "@/_schemas/createBlurbSchema";
 
 const MDEditor = dynamic(() => import("@uiw/react-md-editor"), { ssr: false });
 
@@ -22,12 +24,25 @@ export default function CreateBlurbForm() {
     register,
     handleSubmit,
     getValues,
+    setValue,
     reset,
-    formState: { error, isSubmitting, isLoading },
-  } = useForm();
+    formState: { errors, isSubmitting },
+  } = useForm({
+    resolver: zodResolver(createBlurbSchema),
+    defaultValues: {
+      title: "",
+      description: "",
+      image: null,
+      mainContent: "",
+      markdownFile: null,
+    },
+  });
 
   return (
-    <form className="my-10 grid grid-cols-6 items-start gap-10 gap-y-10 py-4 sm:px-10 md:px-20 xl:px-40 2xl:px-60">
+    <form
+      className="my-10 grid grid-cols-6 items-start gap-10 gap-y-10 py-4 sm:px-10 md:px-20 xl:px-40 2xl:px-60"
+      onSubmit={}
+    >
       <Label className="col-span-2 xl:text-lg" htmlFor="title">
         Title of your Blurb
       </Label>
@@ -74,18 +89,13 @@ export default function CreateBlurbForm() {
         </div>
         <MDEditor
           value={MDvalue}
-          onChange={(val) => setMDValue(val || "")}
+          onChange={(value) => {
+            setMDValue(value || "");
+            setValue("mainContent", value || "");
+          }}
           className="lg:min-h-80"
         />
       </div>
-
-      <input
-        {...register("mainContent")}
-        type="text"
-        hidden
-        value={MDvalue}
-        placeholder="Enter the title of your blurb..."
-      />
 
       <div className="col-span-6 flex flex-col justify-start gap-4">
         <Label className="xl:text-lg" htmlFor="markdownFile">
@@ -99,7 +109,7 @@ export default function CreateBlurbForm() {
         />
       </div>
 
-      <Button disabled={isSubmitting || isLoading} className="col-span-6">
+      <Button disabled={isSubmitting} className="col-span-6">
         Submit
       </Button>
     </form>
