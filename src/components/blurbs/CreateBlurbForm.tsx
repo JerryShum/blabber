@@ -39,60 +39,72 @@ export default function CreateBlurbForm() {
   });
 
   return (
-    <form className="my-10 grid grid-cols-6 items-start gap-10 gap-y-10 py-4 sm:px-10 md:px-20 xl:px-40 2xl:px-60">
+    <form
+      className="my-10 flex flex-col items-start gap-10 py-4 sm:px-10 md:px-20 xl:px-40 2xl:px-60"
+      onSubmit={handleSubmit(() => console.log("Submitted!"))}
+    >
       {/* Title Input: */}
-      <>
-        <Label className="col-span-2 xl:text-lg" htmlFor="title">
-          Title of your Blurb
+      <div className="flex w-full flex-col gap-2">
+        <Label className="font-josefin xl:text-lg" htmlFor="title">
+          Title of your Blurb:
         </Label>
         <input
           {...register("title")}
           type="text"
           required
           placeholder="Enter the title of your blurb..."
-          className="col-span-4 justify-end rounded-lg border border-muted-foreground p-2 text-muted-foreground"
+          className="w-full justify-end rounded-lg border border-border p-2 text-muted-foreground"
         />
-      </>
+        {errors.title && (
+          <p className="text-sm text-red-500">{errors.title.message}</p>
+        )}
+      </div>
 
       {/* Description Input: */}
-      <>
-        <Label className="col-span-2 xl:text-lg" htmlFor="title">
-          Short Description of Blurb Content
+      <div className="flex w-full flex-col gap-2">
+        <Label className="font-josefin xl:text-lg" htmlFor="title">
+          Short Description of Blurb Content:
         </Label>
         <textarea
           {...register("description")}
           required
           placeholder="Enter a short description for your blurb..."
-          className="col-span-4 h-full rounded-lg border border-muted-foreground p-2 text-muted-foreground lg:min-h-32"
+          className="h-full rounded-lg border border-border p-2 text-muted-foreground lg:min-h-32"
         />
-      </>
+        {errors.description && (
+          <p className="text-sm text-red-500">{errors.description.message}</p>
+        )}
+      </div>
 
       {/* Image Input */}
-      <>
-        <div className="col-span-2 flex w-full flex-col gap-2">
-          <Label className="col-span-2 xl:text-lg" htmlFor="title">
-            Image to Display with Blurb
+      <div className="flex w-full flex-col items-start gap-4">
+        <div className="flex w-full flex-col">
+          <Label className="font-josefin xl:text-lg" htmlFor="title">
+            Image to Display with Blurb:
           </Label>
           <h4 className="text-xs text-muted-foreground">
             Image should have a resolution of 1920x1080 and be in .jpg or .png
           </h4>
         </div>
 
-        <div className="col-span-4 flex justify-center">
-          <input
-            {...register("image")}
-            type="file"
-            required
-            className="text-muted-foreground"
-            accept=".jpg, .png"
-          />
-        </div>
-      </>
+        <input
+          {...register("image")}
+          type="file"
+          required
+          className="w-full rounded-lg border border-border file:mr-6 file:h-full file:border-none file:bg-muted file:p-3 file:transition-all file:duration-300 hover:file:brightness-90"
+          accept=".jpg, .png"
+        />
+        {errors.image && (
+          <p className="text-sm text-red-500">{errors.image.message}</p>
+        )}
+      </div>
 
       {/* Markdown Editor: */}
-      <div className="col-span-6 flex flex-col justify-start gap-4">
+      <div className="flex w-full flex-col justify-start gap-4">
         <div>
-          <Label className="xl:text-lg">Blurb&apos;s main content:</Label>
+          <Label className="font-josefin xl:text-lg">
+            Blurb&apos;s main content:
+          </Label>
           <h4 className="text-xs text-muted-foreground">
             Using markdown, you can write the main content for your blurb!
           </h4>
@@ -103,25 +115,31 @@ export default function CreateBlurbForm() {
             setMDValue(value || "");
             setValue("mainContent", value || "");
           }}
-          className="lg:min-h-80"
+          className="w-full lg:min-h-80"
         />
+        {errors.mainContent && (
+          <p className="text-sm text-red-500">{errors.mainContent.message}</p>
+        )}
       </div>
 
       {/* Markdown File Upload: */}
-      <div className="col-span-6 flex flex-col justify-start gap-4">
-        <Label className="xl:text-lg" htmlFor="markdownFile">
+      <div className="flex w-full flex-col justify-start gap-2">
+        <Label className="font-josefin xl:text-lg" htmlFor="markdownFile">
           Or upload a markdown file:
         </Label>
         <input
           {...register("markdownFile")}
           type="file"
-          accept=".md"
-          className="text-muted-foreground"
+          className="w-full rounded-lg border border-border file:mr-6 file:h-full file:border-none file:bg-muted file:p-3 file:transition-all file:duration-300 hover:file:brightness-90"
+          accept=".jpg, .png"
         />
+        {errors.markdownFile && (
+          <p className="text-sm text-red-500">{errors.markdownFile.message}</p>
+        )}
       </div>
 
       {/* Submit Button */}
-      <Button disabled={isSubmitting} className="col-span-6">
+      <Button disabled={isSubmitting} className="w-full">
         Submit
       </Button>
     </form>
