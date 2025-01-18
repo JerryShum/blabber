@@ -10,17 +10,38 @@ export const createBlurbSchema = z
       .string()
       .min(20, { message: "Description should have at least 20 characters." }),
     image: z
-      .instanceof(File, { message: "Please upload an image." })
+      .any()
       .refine(
-        (file) => file.type === "image/jpeg" || file.type === "image/png",
+        (fileList) =>
+          fileList instanceof FileList &&
+          fileList.length > 0 &&
+          (fileList[0].type === "image/jpeg" ||
+            fileList[0].type === "image/png"),
         {
-          message: "Image should be in .jpg or .png format.",
+          message: "Please upload an image in .jpg or .png format.",
         },
       ),
-    mainContent: z.string().optional(),
-    markdownFile: z.instanceof(File).optional(),
+    mainContent: z
+      .string()
+      .optional()
+      .refine((value) => !value || value.trim().length >= 200, {
+        message: "Main content must be at least 200 characters long.",
+      }),
+    markdownFile: z
+      .any()
+      .optional()
+      .refine(
+        (fileList) =>
+          !fileList || // Allow empty
+          (fileList instanceof FileList && fileList.length > 0),
+        { message: "Invalid file upload." },
+      ),
   })
-  .refine((data) => data.mainContent || data.markdownFile, {
-    message: "You must provide either main content or upload a markdown file.",
-    path: ["mainContent"],
-  });
+  .refine(
+    (data) => data.mainContent?.trim().length > 200 || data.markdownFile,
+    {
+      message:
+        "You must provide either a main content with at least 200 characters or upload a markdown file.",
+      path: ["mainContent"],
+    },
+  );
