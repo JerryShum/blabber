@@ -39,10 +39,7 @@ export default function CreateBlurbForm() {
   });
 
   return (
-    <form
-      className="my-10 grid grid-cols-6 items-start gap-10 gap-y-10 py-4 sm:px-10 md:px-20 xl:px-40 2xl:px-60"
-      onSubmit={}
-    >
+    <form className="my-10 grid grid-cols-6 items-start gap-10 gap-y-10 py-4 sm:px-10 md:px-20 xl:px-40 2xl:px-60">
       <Label className="col-span-2 xl:text-lg" htmlFor="title">
         Title of your Blurb
       </Label>
@@ -51,7 +48,7 @@ export default function CreateBlurbForm() {
         type="text"
         required
         placeholder="Enter the title of your blurb..."
-        className="col-span-4 justify-end rounded-xl border border-muted-foreground p-2 text-muted-foreground"
+        className="col-span-4 justify-end rounded-lg border border-muted-foreground p-2 text-muted-foreground"
       />
       <Label className="col-span-2 xl:text-lg" htmlFor="title">
         Short Description of Blurb Content
@@ -60,7 +57,7 @@ export default function CreateBlurbForm() {
         {...register("description")}
         required
         placeholder="Enter a short description for your blurb..."
-        className="col-span-4 h-full rounded-xl border border-muted-foreground p-2 text-muted-foreground lg:min-h-32"
+        className="col-span-4 h-full rounded-lg border border-muted-foreground p-2 text-muted-foreground lg:min-h-32"
       />
       <div className="col-span-2 flex w-full flex-col gap-2">
         <Label className="col-span-2 xl:text-lg" htmlFor="title">
