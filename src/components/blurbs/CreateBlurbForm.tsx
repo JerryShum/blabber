@@ -12,7 +12,7 @@ import * as commands from "@uiw/react-md-editor/commands";
 import { Label } from "../UI/label";
 import { Button } from "../UI/button";
 
-import { createBlurbSchema } from "@/_schemas/clientCreateBlurbSchema";
+import { clientCreateBlurbSchema } from "@/_schemas/clientCreateBlurbSchema";
 import { createBlurbSubmit } from "@/actions";
 
 const MDEditor = dynamic(() => import("@uiw/react-md-editor"), { ssr: false });
@@ -30,7 +30,7 @@ export default function CreateBlurbForm() {
     reset,
     formState: { errors, isSubmitting },
   } = useForm({
-    resolver: zodResolver(createBlurbSchema),
+    resolver: zodResolver(clientCreateBlurbSchema),
     defaultValues: {
       title: "",
       description: "",
@@ -48,7 +48,7 @@ export default function CreateBlurbForm() {
     formData.append("mainContent", data.mainContent);
     formData.append("markdownFile", data.markdownFile);
 
-    // console.log(await createBlurbSubmit(formData));
+    console.log(await createBlurbSubmit(formData));
   }
 
   return (
