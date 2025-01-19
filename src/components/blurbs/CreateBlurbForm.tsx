@@ -1,17 +1,19 @@
 "use client";
 
-import { useForm } from "react-hook-form";
-import { Input } from "../UI/input";
-import { Label } from "../UI/label";
-import { Button } from "../UI/button";
-import "@uiw/react-md-editor/markdown-editor.css";
-import "@uiw/react-markdown-preview/markdown.css";
-import dynamic from "next/dynamic";
 import { useState } from "react";
+import { useForm } from "react-hook-form";
+import dynamic from "next/dynamic";
 import { zodResolver } from "@hookform/resolvers/zod";
 
+import "@uiw/react-md-editor/markdown-editor.css";
+import "@uiw/react-markdown-preview/markdown.css";
 import * as commands from "@uiw/react-md-editor/commands";
+
+import { Label } from "../UI/label";
+import { Button } from "../UI/button";
+
 import { createBlurbSchema } from "@/_schemas/createBlurbSchema";
+import { createBlurbSubmit } from "@/actions";
 
 const MDEditor = dynamic(() => import("@uiw/react-md-editor"), { ssr: false });
 
@@ -37,6 +39,15 @@ export default function CreateBlurbForm() {
       markdownFile: null,
     },
   });
+
+  function onSubmit(data) {
+    const formData = new FormData();
+    formData.append("title", data.title);
+    formData.append("description", data.description);
+    formData.append("image", data.image);
+    formData.append("mainContent", data.mainContent);
+    formData.append("markdownFile", data.markdownFile);
+  }
 
   return (
     <form
