@@ -12,7 +12,7 @@ import * as commands from "@uiw/react-md-editor/commands";
 import { Label } from "../UI/label";
 import { Button } from "../UI/button";
 
-import { createBlurbSchema } from "@/_schemas/createBlurbSchema";
+import { createBlurbSchema } from "@/_schemas/clientCreateBlurbSchema";
 import { createBlurbSubmit } from "@/actions";
 
 const MDEditor = dynamic(() => import("@uiw/react-md-editor"), { ssr: false });
@@ -40,19 +40,21 @@ export default function CreateBlurbForm() {
     },
   });
 
-  function onSubmit(data) {
+  async function onSubmit(data) {
     const formData = new FormData();
     formData.append("title", data.title);
     formData.append("description", data.description);
     formData.append("image", data.image);
     formData.append("mainContent", data.mainContent);
     formData.append("markdownFile", data.markdownFile);
+
+    // console.log(await createBlurbSubmit(formData));
   }
 
   return (
     <form
       className="my-10 flex flex-col items-start gap-10 py-4 sm:px-10 md:px-20 xl:px-40 2xl:px-60"
-      onSubmit={handleSubmit(() => console.log("Submitted!"))}
+      onSubmit={handleSubmit(onSubmit)}
     >
       {/* Title Input: */}
       <div className="flex w-full flex-col gap-2">
@@ -142,7 +144,7 @@ export default function CreateBlurbForm() {
           {...register("markdownFile")}
           type="file"
           className="w-full rounded-lg border border-border file:mr-6 file:h-full file:border-none file:bg-muted file:p-3 file:transition-all file:duration-300 hover:file:brightness-90"
-          accept=".jpg, .png"
+          accept=".md"
         />
         {errors.markdownFile && (
           <p className="text-sm text-red-500">{errors.markdownFile.message}</p>

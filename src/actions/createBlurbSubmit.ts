@@ -1,7 +1,7 @@
 "use server";
 
 import { FormState } from "react-hook-form";
-import { createBlurbSchema } from "@/_schemas/createBlurbSchema";
+import { createBlurbSchema } from "@/_schemas/clientCreateBlurbSchema";
 
 export async function createBlurbSubmit(data: FormData): Promise<FormState> {
   const formData = Object.fromEntries(data);

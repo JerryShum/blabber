@@ -32,9 +32,13 @@ export const createBlurbSchema = z
       .optional()
       .refine(
         (fileList) =>
-          !fileList || // Allow empty
-          (fileList instanceof FileList && fileList.length > 0),
-        { message: "Invalid file upload." },
+          fileList instanceof FileList &&
+          fileList.length > 0 &&
+          (fileList[0].type === "text/markdown" ||
+            fileList[0].name.endsWith(".md")),
+        {
+          message: "Please upload a markdown file.",
+        },
       ),
   })
   .refine(
