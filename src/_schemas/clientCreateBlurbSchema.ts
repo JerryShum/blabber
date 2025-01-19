@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const createBlurbSchema = z
+export const clientCreateBlurbSchema = z
   .object({
     title: z
       .string()
