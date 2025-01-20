@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { startTransition, useActionState, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import dynamic from "next/dynamic";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -13,7 +13,7 @@ import { Label } from "../UI/label";
 import { Button } from "../UI/button";
 
 import { createBlurbSchema } from "@/_schemas/createBlurbSchema";
-import { createBlurbSubmit } from "@/actions";
+import { createBlurbAction } from "@/actions";
 
 const MDEditor = dynamic(() => import("@uiw/react-md-editor"), { ssr: false });
 
@@ -21,6 +21,11 @@ export default function CreateBlurbForm() {
   const [MDvalue, setMDValue] = useState(
     "**Use markdown for the main content of your blurb!**",
   );
+
+  const [formState, action, isPending] = useActionState(createBlurbAction, {
+    status: "idle",
+    errors: {},
+  });
 
   const {
     register,
@@ -44,13 +49,12 @@ export default function CreateBlurbForm() {
     const formData = new FormData();
     formData.append("title", data.title.toString());
     formData.append("description", data.description.toString());
-    formData.append("image", data.image as File);
+    formData.append("image", data.image.toString());
     formData.append("mainContent", data.mainContent.toString());
-    formData.append("markdownFile", data.markdownFile as File);
 
-    // console.log("image:" + formData.get("image"));
-
-    console.log(await createBlurbSubmit(formData));
+    startTransition(() => {
+      action(formData);
+    });
   }
 
   return (
@@ -137,24 +141,13 @@ export default function CreateBlurbForm() {
         )}
       </div>
 
-      {/* Markdown File Upload: */}
-      {/* <div className="flex w-full flex-col justify-start gap-2">
-        <Label className="font-josefin xl:text-lg" htmlFor="markdownFile">
-          Or upload a markdown file:
-        </Label>
-        <input
-          {...register("markdownFile")}
-          type="file"
-          className="w-full rounded-lg border border-border file:mr-6 file:h-full file:border-none file:bg-muted file:p-3 file:transition-all file:duration-300 hover:file:brightness-90"
-          accept=".md"
-        />
-        {errors.markdownFile && (
-          <p className="text-sm text-red-500">{errors.markdownFile.message}</p>
-        )}
-      </div> */}
+      {/* FORM STATE FROM SERVER */}
+      {formState.status === "success" && (
+        <p className="text-green-500">SUCCESS!!!!!!!!</p>
+      )}
 
       {/* Submit Button */}
-      <Button disabled={isSubmitting} className="w-full">
+      <Button disabled={isSubmitting || isPending} className="w-full">
         Submit
       </Button>
     </form>
