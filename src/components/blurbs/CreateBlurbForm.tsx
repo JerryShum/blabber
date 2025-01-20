@@ -12,7 +12,7 @@ import * as commands from "@uiw/react-md-editor/commands";
 import { Label } from "../UI/label";
 import { Button } from "../UI/button";
 
-import { clientCreateBlurbSchema } from "@/_schemas/clientCreateBlurbSchema";
+import { createBlurbSchema } from "@/_schemas/createBlurbSchema";
 import { createBlurbSubmit } from "@/actions";
 
 const MDEditor = dynamic(() => import("@uiw/react-md-editor"), { ssr: false });
@@ -30,7 +30,7 @@ export default function CreateBlurbForm() {
     reset,
     formState: { errors, isSubmitting },
   } = useForm({
-    resolver: zodResolver(clientCreateBlurbSchema),
+    resolver: zodResolver(createBlurbSchema),
     defaultValues: {
       title: "",
       description: "",
@@ -42,11 +42,13 @@ export default function CreateBlurbForm() {
 
   async function onSubmit(data) {
     const formData = new FormData();
-    formData.append("title", data.title);
-    formData.append("description", data.description);
-    formData.append("image", data.image);
-    formData.append("mainContent", data.mainContent);
-    formData.append("markdownFile", data.markdownFile);
+    formData.append("title", data.title.toString());
+    formData.append("description", data.description.toString());
+    formData.append("image", data.image as File);
+    formData.append("mainContent", data.mainContent.toString());
+    formData.append("markdownFile", data.markdownFile as File);
+
+    // console.log("image:" + formData.get("image"));
 
     console.log(await createBlurbSubmit(formData));
   }
@@ -102,10 +104,10 @@ export default function CreateBlurbForm() {
 
         <input
           {...register("image")}
-          type="file"
+          type="text"
           required
-          className="w-full rounded-lg border border-border file:mr-6 file:h-full file:border-none file:bg-muted file:p-3 file:transition-all file:duration-300 hover:file:brightness-90"
-          accept=".jpg, .png"
+          placeholder="Enter the URL for your image..."
+          className="w-full justify-end rounded-lg border border-border p-2 text-muted-foreground"
         />
         {errors.image && (
           <p className="text-sm text-red-500">{errors.image.message}</p>
@@ -136,7 +138,7 @@ export default function CreateBlurbForm() {
       </div>
 
       {/* Markdown File Upload: */}
-      <div className="flex w-full flex-col justify-start gap-2">
+      {/* <div className="flex w-full flex-col justify-start gap-2">
         <Label className="font-josefin xl:text-lg" htmlFor="markdownFile">
           Or upload a markdown file:
         </Label>
@@ -149,7 +151,7 @@ export default function CreateBlurbForm() {
         {errors.markdownFile && (
           <p className="text-sm text-red-500">{errors.markdownFile.message}</p>
         )}
-      </div>
+      </div> */}
 
       {/* Submit Button */}
       <Button disabled={isSubmitting} className="w-full">
