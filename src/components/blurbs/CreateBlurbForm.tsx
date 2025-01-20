@@ -33,6 +33,7 @@ export default function CreateBlurbForm() {
   const [formState, action, isPending] = useActionState(createBlurbAction, {
     status: "idle",
     errors: {},
+    id: null,
   });
 
   const {
@@ -68,11 +69,11 @@ export default function CreateBlurbForm() {
   useEffect(() => {
     if (formState.status === "success") {
       toast.success("Blurb created successfully!");
-      redirect("/");
+      redirect(`/blurbs/${formState.id}`);
     } else if (formState.status === "error") {
       toast.error("An error occurred while creating the blurb.");
     }
-  }, [formState.status, reset]);
+  }, [formState.status, reset, formState.id]);
 
   return (
     <form

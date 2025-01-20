@@ -13,6 +13,7 @@ type FormState = {
     mainContent?: string[];
     _form?: string[];
   };
+  id: number | null;
 };
 
 export async function createBlurbAction(
@@ -21,6 +22,7 @@ export async function createBlurbAction(
 ): Promise<FormState> {
   const actualData = Object.fromEntries(data.entries());
   const parseResult = createBlurbSchema.safeParse(actualData);
+  let blurbID = null;
 
   //! If form validation fails, return the errors received from the schema
   if (!parseResult.success) {
@@ -28,6 +30,7 @@ export async function createBlurbAction(
     return {
       status: "error",
       errors: parseResult.error.flatten().fieldErrors,
+      id: null,
     };
   } else {
     //! No form validation errors, so proceed with DB
@@ -39,6 +42,7 @@ export async function createBlurbAction(
         return {
           status: "error",
           errors: { _form: ["You must be logged in to create a blurb"] },
+          id: null,
         };
       }
 
@@ -59,18 +63,21 @@ export async function createBlurbAction(
       });
 
       console.log("Created a new blurb:", newBlurb);
+      blurbID = newBlurb.id;
     } catch (error: unknown) {
       //! If we know what the error is:
       if (error instanceof Error) {
         return {
           status: "error",
           errors: { _form: [error.message] },
+          id: null,
         };
       } else {
         //! If we don't know what the error is:
         return {
           status: "error",
           errors: { _form: ["An unknown error occurred"] },
+          id: blurbID,
         };
       }
     }
@@ -78,6 +85,7 @@ export async function createBlurbAction(
     return {
       status: "success",
       errors: {},
+      id: blurbID,
     };
   }
 }
