@@ -1,9 +1,16 @@
 "use client";
 
-import { startTransition, useActionState, useRef, useState } from "react";
+import {
+  startTransition,
+  useActionState,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { useForm } from "react-hook-form";
 import dynamic from "next/dynamic";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { toast } from "react-hot-toast";
 
 import "@uiw/react-md-editor/markdown-editor.css";
 import "@uiw/react-markdown-preview/markdown.css";
@@ -14,6 +21,7 @@ import { Button } from "../UI/button";
 
 import { createBlurbSchema } from "@/_schemas/createBlurbSchema";
 import { createBlurbAction } from "@/actions";
+import { redirect } from "next/navigation";
 
 const MDEditor = dynamic(() => import("@uiw/react-md-editor"), { ssr: false });
 
@@ -56,6 +64,15 @@ export default function CreateBlurbForm() {
       action(formData);
     });
   }
+
+  useEffect(() => {
+    if (formState.status === "success") {
+      toast.success("Blurb created successfully!");
+      redirect("/");
+    } else if (formState.status === "error") {
+      toast.error("An error occurred while creating the blurb.");
+    }
+  }, [formState.status, reset]);
 
   return (
     <form
@@ -140,11 +157,6 @@ export default function CreateBlurbForm() {
           <p className="text-sm text-red-500">{errors.mainContent.message}</p>
         )}
       </div>
-
-      {/* FORM STATE FROM SERVER */}
-      {formState.status === "success" && (
-        <p className="text-green-500">SUCCESS!!!!!!!!</p>
-      )}
 
       {/* Submit Button */}
       <Button disabled={isSubmitting || isPending} className="w-full">
