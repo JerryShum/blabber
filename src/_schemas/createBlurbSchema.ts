@@ -8,7 +8,28 @@ export const createBlurbSchema = z.object({
   description: z
     .string()
     .min(20, { message: "Description should have at least 20 characters." }),
-  image: z.string().url({ message: "Image should be a valid URL." }),
+  image: z
+    .string()
+    .url({ message: "Image should be a valid URL." })
+    .refine(
+      (url) => {
+        try {
+          const parsedUrl = new URL(url);
+          return (
+            parsedUrl.protocol === "http:" || parsedUrl.protocol === "https:"
+          );
+        } catch {
+          return false;
+        }
+      },
+      { message: "Image should be a valid URL." },
+    )
+    .refine(
+      (url) => {
+        return url.endsWith(".jpg") || url.endsWith(".png");
+      },
+      { message: "Image should be a .jpg or .png file." },
+    ),
   mainContent: z.string().min(200, {
     message: "Main content should have at least 200 characters.",
   }),
