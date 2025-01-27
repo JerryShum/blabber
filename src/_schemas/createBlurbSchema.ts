@@ -23,12 +23,6 @@ export const createBlurbSchema = z.object({
         }
       },
       { message: "Image should be a valid URL." },
-    )
-    .refine(
-      (url) => {
-        return url.endsWith(".jpg") || url.endsWith(".png");
-      },
-      { message: "Image should be a .jpg or .png file." },
     ),
   mainContent: z.string().min(200, {
     message: "Main content should have at least 200 characters.",
