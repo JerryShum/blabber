@@ -22,6 +22,7 @@ import { Button } from "../UI/button";
 import { createBlurbSchema } from "@/_schemas/createBlurbSchema";
 import { createBlurbAction } from "@/actions";
 import { redirect } from "next/navigation";
+import StyledFileInput from "../form/StyledFileInput";
 
 const MDEditor = dynamic(() => import("@uiw/react-md-editor"), { ssr: false });
 
@@ -158,6 +159,9 @@ export default function CreateBlurbForm() {
           <p className="text-sm text-red-500">{errors.mainContent.message}</p>
         )}
       </div>
+
+      {/* <Label className="font-josefin xl:text-lg">Please put file here:</Label>
+      <StyledFileInput /> */}
 
       {/* Submit Button */}
       <Button disabled={isSubmitting || isPending} className="w-full">
