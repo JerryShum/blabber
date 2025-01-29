@@ -12,21 +12,6 @@ export default async function Page({ params }: { params: Params }) {
   const blurb = await getBlurbsID(blurbID);
   console.log(blurb);
 
-  const sampleBlurb = {
-    id: 27,
-    description:
-      "short descriptionTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTest",
-    content:
-      "**Use markdown for the main content of your blurb!**testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest",
-    authorId: "cm5h1fvam0000ui4cnslmlao7",
-    createdAt: new Date("2025-01-27T22:28:56.779Z"),
-    image:
-      "https://4.img-dpreview.com/files/p/E~TS590x0~articles/3925134721/0266554465.jpeg",
-    title: "TestTestTestTestTest",
-    estimatedRead: "1",
-    author: { name: "Jerry Shum", email: "jerryshum2636@gmail.com" },
-  };
-
   return (
     <div className="mt-20">
       <div className="space-y-2">
