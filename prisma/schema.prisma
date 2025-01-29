@@ -23,6 +23,7 @@ model Blurb {
   image     String  
   title     String
   estimatedRead     String 
+  views    Int       @default(0)
 }
 
 
