@@ -1,3 +1,4 @@
+import BlurbContentDisplay from "@/components/blurbs/BlurbContentDisplay";
 import { AspectRatio } from "@/components/UI/aspect-ratio";
 import { getBlurbsID } from "@/lib/queries/getBlurbs";
 import Image from "next/image";
@@ -33,8 +34,8 @@ export default async function Page({ params }: { params: Params }) {
         <h2 className="text-xl text-muted-foreground">{blurb.description}</h2>
       </div>
 
-      <div className="relative">
-        <AspectRatio className="mt-10" ratio={16 / 9}>
+      <div className="relative mt-10 overflow-hidden rounded-lg">
+        <AspectRatio ratio={16 / 9}>
           <Image
             src={blurb?.image}
             className="object-cover object-center"
@@ -44,15 +45,23 @@ export default async function Page({ params }: { params: Params }) {
           />
         </AspectRatio>
 
-        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
-          <p className="text-white">{blurb.author.name}</p>
-          <p>{new Date(blurb.createdAt).toLocaleDateString()}</p>
+        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4 font-josefin text-white">
+          <div className="flex flex-col gap-4 sm:flex-row sm:justify-end sm:gap-10">
+            <div>
+              <p>Written by:</p>
+              <p className="text-xl">{blurb.author.name}</p>
+            </div>
+            <div>
+              <p>Published on:</p>
+              <p className="text-xl">
+                {new Date(blurb.createdAt).toLocaleDateString()}
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div>
-        <p>{blurb.content}</p>
-      </div>
+      <BlurbContentDisplay content={blurb.content} />
     </div>
   );
 }
