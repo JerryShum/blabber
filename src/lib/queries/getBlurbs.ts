@@ -24,3 +24,12 @@ export async function getBlurbsID(blurbID: string): Promise<Blurb | null> {
 
   return blurb;
 }
+
+export async function getTop4Blurbs(): Promise<Blurb[]> {
+  const blurbs = await prisma.blurb.findMany({
+    orderBy: { views: "desc" },
+    take: 4,
+  });
+
+  return blurbs;
+}
