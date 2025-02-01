@@ -19,7 +19,7 @@ export default function DisplayBlurb({
 }: DisplayBlurbProps): ReactNode {
   return (
     <div
-      className={`overflow-hidden rounded-xl transition-all duration-300 ${scale ? "hover:scale-105" : ""}`}
+      className={`overflow-hidden rounded-xl transition-all duration-300 ${scale ? "hover:scale-105" : "hover:scale-95"}`}
     >
       <Link href={paths.blurbIDPage(blurb.id)}>
         <div className="relative overflow-hidden rounded-xl">

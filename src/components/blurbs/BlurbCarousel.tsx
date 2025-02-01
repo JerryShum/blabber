@@ -35,21 +35,30 @@ const sampleBlurb = {
   },
 };
 
+const blurbArray = [
+  sampleBlurb,
+  sampleBlurb,
+  sampleBlurb,
+  sampleBlurb,
+  sampleBlurb,
+  sampleBlurb,
+];
+
 export default function BlurbCarousel({ blurbs }: BlurbCarouselProps) {
   return (
-    <Carousel className="w-full">
+    <Carousel
+      className="w-full"
+      opts={{
+        align: "center",
+        loop: true,
+      }}
+    >
       <CarouselContent>
-        <CarouselItem className="basis-1/4">
-          <DisplayBlurb blurb={sampleBlurb} scale={false} />
-        </CarouselItem>
-        <CarouselItem className="basis-1/4">
-          <DisplayBlurb blurb={sampleBlurb} scale={false} />
-        </CarouselItem>
-        <CarouselItem className="basis-1/4">
-          <DisplayBlurb blurb={sampleBlurb} scale={false} />
-        </CarouselItem>
-
-        <CarouselItem>...</CarouselItem>
+        {blurbArray.map((blurb) => (
+          <CarouselItem key={blurb.id} className="basis-1/3">
+            <DisplayBlurb blurb={blurb} scale={false} />
+          </CarouselItem>
+        ))}
       </CarouselContent>
       <CarouselPrevious />
       <CarouselNext />
