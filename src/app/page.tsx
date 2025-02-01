@@ -1,16 +1,15 @@
 import DisplayBlurb from "@/components/blurbs/DisplayBlurb";
 import HeroBlurb from "@/components/blurbs/HeroBlurb";
-
+import DataPoint from "@/components/common/DataPoint";
+import { getTop4Blurbs } from "@/lib/queries/getBlurbs";
+import { getStats } from "@/lib/queries/getStats";
+import paths from "@/paths";
 import { Blurb } from "@prisma/client";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
-import paths from "@/paths";
-import DataPoint from "@/components/common/DataPoint";
-import { stringify } from "querystring";
-import { getTop4Blurbs } from "@/lib/queries/getBlurbs";
 
-const blurbs = await getTop4Blurbs();
-console.log(blurbs);
+const blurbs: Blurb[] = await getTop4Blurbs();
+const stats: string[] = await getStats();
 
 export default async function Home() {
   return (
@@ -37,14 +36,19 @@ export default async function Home() {
       <div className="mt-16">
         <h1 className="font-josefin text-3xl">Community Highlights</h1>
         <div className="mt-4 grid grid-cols-2 gap-5">
-          <DataPoint colour="blue" dataValue="12" size="xlarge" position="top">
+          <DataPoint
+            colour="blue"
+            dataValue={stats[0]}
+            size="xlarge"
+            position="top"
+          >
             Total Number of Users
           </DataPoint>
           <div className="grid grid-rows-2 gap-5">
             <DataPoint
               colour="green"
               position="bottom"
-              dataValue="540"
+              dataValue={stats[1]}
               size="medium"
             >
               Unique Blurbs Written
@@ -52,7 +56,7 @@ export default async function Home() {
             <DataPoint
               colour="yellow"
               position="left"
-              dataValue="Jerry Shum"
+              dataValue={stats[2]}
               size="small"
             >
               Top Contributor This Week
