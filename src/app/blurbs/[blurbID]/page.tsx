@@ -15,11 +15,16 @@ export default async function Page({ params }: { params: Params }) {
   return (
     <div className="mt-20">
       <div className="space-y-2">
-        <h1 className="text-5xl font-bold">{blurb.title}</h1>
-        <h2 className="text-xl text-muted-foreground">{blurb.description}</h2>
+        <h1 className="font-josefin text-5xl font-bold">{blurb.title}</h1>
+        <h2 className="font-josefin text-xl text-muted-foreground">
+          {blurb.description}
+        </h2>
+        <h3 className="font-semibold text-muted-foreground">
+          {blurb?.estimatedRead} Minute Readtime
+        </h3>
       </div>
 
-      <div className="relative mt-10 overflow-hidden rounded-lg">
+      <div className="relative mt-6 overflow-hidden rounded-lg">
         <AspectRatio ratio={16 / 9}>
           <Image
             src={blurb?.image}
