@@ -12,6 +12,7 @@ const blurbs: Blurb[] = await getTop4Blurbs();
 const stats: string[] = await getStats();
 
 export default async function Home() {
+  console.log(blurbs);
   return (
     <div className="">
       <HeroBlurb blurb={blurbs[0]} />
@@ -29,7 +30,7 @@ export default async function Home() {
         </div>
         <div className="mt-4 grid w-full grid-cols-3 gap-10">
           {blurbs.slice(1).map((blurb: Blurb) => (
-            <DisplayBlurb blurb={blurb} key={blurb.id} />
+            <DisplayBlurb blurb={blurb} key={blurb.id} scale={true} />
           ))}
         </div>
       </div>

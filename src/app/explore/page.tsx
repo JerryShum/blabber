@@ -1,3 +1,5 @@
+import BlurbCarousel from "@/components/blurbs/BlurbCarousel";
+
 //! Page for exploring all the different articles and topics
 export default function ExplorePage() {
   return (
@@ -13,8 +15,8 @@ export default function ExplorePage() {
         <h2 className="font-josefin text-2xl text-primary underline">
           Trending Blurbs:
         </h2>
-        <div className="mt-5 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {/* Trending articles go here */}
+        <div className="mt-5 w-full px-10">
+          <BlurbCarousel />
         </div>
       </div>
     </div>

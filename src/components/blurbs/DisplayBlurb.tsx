@@ -10,11 +10,17 @@ interface DisplayBlurbProps {
   blurb: Blurb & {
     author: User;
   };
+  scale: boolean;
 }
 
-export default function DisplayBlurb({ blurb }: DisplayBlurbProps): ReactNode {
+export default function DisplayBlurb({
+  blurb,
+  scale,
+}: DisplayBlurbProps): ReactNode {
   return (
-    <div className="rounded-xl transition-all duration-300 hover:scale-105">
+    <div
+      className={`overflow-hidden rounded-xl transition-all duration-300 ${scale ? "hover:scale-105" : ""}`}
+    >
       <Link href={paths.blurbIDPage(blurb.id)}>
         <div className="relative overflow-hidden rounded-xl">
           <AspectRatio ratio={16 / 9}>
@@ -48,7 +54,7 @@ export default function DisplayBlurb({ blurb }: DisplayBlurbProps): ReactNode {
         <div className="mt-2">
           <h2 className="font-noto text-xl text-foreground">{blurb.title}</h2>
           <h3 className="font-noto text-muted-foreground">
-            {blurb.description.length > 100
+            {blurb.description.length > 50
               ? `${blurb.description.substring(0, 50)}...`
               : blurb.description}
           </h3>
