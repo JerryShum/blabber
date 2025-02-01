@@ -7,7 +7,7 @@ export async function getBlurbsID(blurbID: string): Promise<Blurb | null> {
     const blurb = await prisma.blurb.findUnique({
       where: { id: parseInt(blurbID) },
       include: {
-        author: { select: { name: true, email: true } },
+        author: { select: { name: true, email: true, image: true } },
       },
     });
 
@@ -27,6 +27,9 @@ export async function getBlurbsID(blurbID: string): Promise<Blurb | null> {
 
 export async function getTop4Blurbs(): Promise<Blurb[]> {
   const blurbs = await prisma.blurb.findMany({
+    include: {
+      author: true,
+    },
     orderBy: { views: "desc" },
     take: 4,
   });

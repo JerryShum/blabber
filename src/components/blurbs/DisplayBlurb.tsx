@@ -1,4 +1,4 @@
-import { Blurb } from "@prisma/client";
+import { Blurb, User } from "@prisma/client";
 import Image from "next/image";
 import { ReactNode } from "react";
 import { AspectRatio } from "../UI/aspect-ratio";
@@ -7,16 +7,10 @@ import Link from "next/link";
 import paths from "@/paths";
 
 interface DisplayBlurbProps {
-  blurb: Blurb;
+  blurb: Blurb & {
+    author: User;
+  };
 }
-
-const dummyUser: User = {
-  id: "1",
-  name: "John Doe",
-  email: "john.doe@example.com",
-  emailVerified: new Date(),
-  image: "https://github.com/shadcn.png",
-};
 
 export default function DisplayBlurb({ blurb }: DisplayBlurbProps): ReactNode {
   return (
@@ -34,7 +28,7 @@ export default function DisplayBlurb({ blurb }: DisplayBlurbProps): ReactNode {
           </AspectRatio>
 
           <div className="absolute bottom-0 left-0 flex flex-col items-start justify-start gap-4 p-4">
-            <Author user={dummyUser} />
+            <Author user={blurb.author} />
             <div className="flex items-center justify-end gap-4 rounded-xl bg-black bg-opacity-70 p-1 px-2 font-josefin text-zinc-200 opacity-80">
               <h4>
                 {new Date(blurb.createdAt).toLocaleDateString("en-US", {

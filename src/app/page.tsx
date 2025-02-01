@@ -10,6 +10,7 @@ import { stringify } from "querystring";
 import { getTop4Blurbs } from "@/lib/queries/getBlurbs";
 
 const blurbs = await getTop4Blurbs();
+console.log(blurbs);
 
 export default async function Home() {
   return (

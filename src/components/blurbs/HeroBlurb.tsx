@@ -7,16 +7,11 @@ import Link from "next/link";
 import paths from "@/paths";
 
 interface HeroBlurbProps {
-  blurb: Blurb;
+  blurb: Blurb & {
+    author: User;
+  };
 }
 
-const dummyUser: User = {
-  id: "1",
-  name: "John Doe",
-  email: "john.doe@example.com",
-  emailVerified: new Date(),
-  image: "https://github.com/shadcn.png",
-};
 export default function HeroBlurb({ blurb }: HeroBlurbProps): ReactNode {
   return (
     <div className="transition-all duration-200 hover:scale-[101%] hover:brightness-[85%]">
@@ -43,7 +38,7 @@ export default function HeroBlurb({ blurb }: HeroBlurbProps): ReactNode {
               </h3>
             </div>
             <div className="flex flex-col gap-2">
-              <Author user={dummyUser} />
+              <Author user={blurb.author} />
               <div className="flex items-center justify-end gap-4 rounded-xl bg-black bg-opacity-70 p-2 font-josefin text-zinc-200 opacity-80">
                 <h4>
                   {new Date(blurb.createdAt).toLocaleDateString("en-US", {
