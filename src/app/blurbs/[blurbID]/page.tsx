@@ -20,7 +20,8 @@ export default async function Page({ params }: { params: Params }) {
           {blurb.description}
         </h2>
         <h3 className="font-semibold text-muted-foreground">
-          {blurb?.estimatedRead} Minute Readtime
+          Estimated Read Time:{" "}
+          <span className="font-normal">{blurb?.estimatedRead} minutes</span>
         </h3>
       </div>
 
