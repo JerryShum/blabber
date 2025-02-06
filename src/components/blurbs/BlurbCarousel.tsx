@@ -13,37 +13,6 @@ interface BlurbCarouselProps {
   blurbs: Blurb[];
 }
 
-const sampleBlurb = {
-  id: 27,
-  description:
-    "short descriptionTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTest",
-  content:
-    "**Use markdown for the main content of your blurb!**testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest",
-  authorId: "cm5h1fvam0000ui4cnslmlao7",
-  createdAt: new Date("2025-01-27T22:28:56.779Z"),
-  image:
-    "https://images.unsplash.com/photo-1738230077816-fbab6232c545?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  title: "TestTestTestTestTest",
-  estimatedRead: "1",
-  views: 0,
-  author: {
-    name: "Jerry Shum",
-    id: "authorId",
-    image: null,
-    email: "jerryshum2636@gmail.com",
-    emailVerified: null,
-  },
-};
-
-const blurbArray = [
-  sampleBlurb,
-  sampleBlurb,
-  sampleBlurb,
-  sampleBlurb,
-  sampleBlurb,
-  sampleBlurb,
-];
-
 export default function BlurbCarousel({ blurbs }: BlurbCarouselProps) {
   return (
     <Carousel
@@ -54,7 +23,7 @@ export default function BlurbCarousel({ blurbs }: BlurbCarouselProps) {
       }}
     >
       <CarouselContent>
-        {blurbArray.map((blurb) => (
+        {blurbs.map((blurb) => (
           <CarouselItem key={blurb.id} className="basis-1/3">
             <DisplayBlurb blurb={blurb} scale={false} />
           </CarouselItem>
