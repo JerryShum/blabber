@@ -1,4 +1,3 @@
-import BlurbCarousel from "@/components/blurbs/BlurbCarousel";
 import ExploreBlurbs from "@/components/blurbs/ExploreBlurbs";
 
 //! Page for exploring all the different articles and topics
@@ -47,12 +46,18 @@ export default function ExplorePage() {
         <ExploreBlurbs
           blurbs={blurbArray}
           title="Trending Blurbs:"
-          description="Hot off the digital press – trending blurbs to explore."
+          description="Hot off the digital press &mdash; trending blurbs to explore."
         />
         <ExploreBlurbs
           blurbs={blurbArray}
-          title="Explore"
-          description="sigma"
+          title="Newest Blurbs:"
+          description="Fresh content, fresh perspectives &mdash; right from the source."
+        />
+        <ExploreBlurbs
+          blurbs={blurbArray}
+          title="Featured / Editor's Picks"
+          description="Handpicked highlights: the best of the best."
+          isLastChild={true}
         />
       </div>
     </div>
