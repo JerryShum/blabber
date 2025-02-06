@@ -1,4 +1,5 @@
 import BlurbCarousel from "@/components/blurbs/BlurbCarousel";
+import ExploreBlurbs from "@/components/blurbs/ExploreBlurbs";
 
 //! Page for exploring all the different articles and topics
 export default function ExplorePage() {
@@ -36,19 +37,23 @@ export default function ExplorePage() {
   return (
     <div className="mt-10">
       <div className="flex flex-col font-josefin">
-        <h1 className="mt-10 text-3xl font-semibold text-primary">Explore</h1>
-        <p className="text-lg text-muted-foreground">
+        <h1 className="text-4xl font-semibold text-primary">Explore</h1>
+        <p className="text-2xl text-muted-foreground">
           Dive into the world of Blurbs - trending, fresh, and just for you!
         </p>
       </div>
 
-      <div className="mt-10">
-        <h2 className="font-josefin text-2xl text-primary underline">
-          Trending Blurbs:
-        </h2>
-        <div className="mt-5 w-full px-10">
-          <BlurbCarousel blurbs={blurbArray} />
-        </div>
+      <div className="mt-10 flex flex-col gap-10 border-t pt-10">
+        <ExploreBlurbs
+          blurbs={blurbArray}
+          title="Trending Blurbs:"
+          description="Hot off the digital press – trending blurbs to explore."
+        />
+        <ExploreBlurbs
+          blurbs={blurbArray}
+          title="Explore"
+          description="sigma"
+        />
       </div>
     </div>
   );
