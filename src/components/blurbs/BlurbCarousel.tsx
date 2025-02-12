@@ -29,8 +29,8 @@ export default function BlurbCarousel({ blurbs }: BlurbCarouselProps) {
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
+      <CarouselPrevious className="shadow-md" />
+      <CarouselNext className="shadow-md" />
     </Carousel>
   );
 }
