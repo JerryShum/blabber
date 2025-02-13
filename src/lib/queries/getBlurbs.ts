@@ -51,16 +51,12 @@ export async function getNewestBlurbs(): Promise<Blurb[]> {
 }
 
 export async function getTrendingBlurbs(): Promise<Blurb[]> {
-  const now = new Date();
-  const yesterday = new Date(now);
-  yesterday.setDate(now.getDate() - 1); // Get the date 24 hours ago
+  //! Only use this if you want to get blurbs from the last 24 hours
+  // const now = new Date();
+  // const yesterday = new Date(now);
+  // yesterday.setDate(now.getDate() - 1); // Get the date 24 hours ago
 
   const blurbs = await prisma.blurb.findMany({
-    where: {
-      createdAt: {
-        gte: yesterday, // Filter for blurbs created in the last 24 hours
-      },
-    },
     include: {
       author: true,
     },
@@ -73,14 +69,31 @@ export async function getTrendingBlurbs(): Promise<Blurb[]> {
   return blurbs;
 }
 
+export async function getFeaturedBlurbs(): Promise<Blurb[]> {
+  const blurbs = await prisma.blurb.findMany({
+    where: {
+      id: {
+        in: [30, 31, 32, 33, 34, 35, 36],
+      },
+    },
+    include: {
+      author: true,
+    },
+  });
+
+  return blurbs;
+}
+
 //! Consolidate all the queries into one function
 // Returns an object with the newest and trending blurbs
 export async function getExploreBlurbs(): Promise<{
-  newest: Blurb[];
-  trending: Blurb[];
+  newestBlurbs: Blurb[];
+  trendingBlurbs: Blurb[];
+  featuredBlurbs: Blurb[];
 }> {
-  const newest = await getNewestBlurbs();
-  const trending = await getTrendingBlurbs();
+  const newestBlurbs = await getNewestBlurbs();
+  const trendingBlurbs = await getTrendingBlurbs();
+  const featuredBlurbs = await getFeaturedBlurbs();
 
-  return { newest, trending };
+  return { newestBlurbs, trendingBlurbs, featuredBlurbs };
 }
