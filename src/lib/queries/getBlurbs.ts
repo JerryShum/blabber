@@ -72,3 +72,15 @@ export async function getTrendingBlurbs(): Promise<Blurb[]> {
 
   return blurbs;
 }
+
+//! Consolidate all the queries into one function
+// Returns an object with the newest and trending blurbs
+export async function getExploreBlurbs(): Promise<{
+  newest: Blurb[];
+  trending: Blurb[];
+}> {
+  const newest = await getNewestBlurbs();
+  const trending = await getTrendingBlurbs();
+
+  return { newest, trending };
+}
