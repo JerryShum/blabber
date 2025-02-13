@@ -11,6 +11,9 @@ import Link from "next/link";
 const blurbs: Blurb[] = await getTop4Blurbs();
 const stats: string[] = await getStats();
 
+//! Revalidate every 12 hours
+export const revalidate = 43200;
+
 export default async function Home() {
   console.log(blurbs);
   return (
