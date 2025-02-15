@@ -19,23 +19,27 @@ export default function DisplayBlurb({
 }: DisplayBlurbProps): ReactNode {
   return (
     <div
-      className={`overflow-hidden rounded-xl transition-all duration-300 ${scale ? "hover:scale-105" : "hover:scale-95"}`}
+      className={`overflow-hidden rounded-lg transition-all duration-300 sm:rounded-xl ${
+        scale ? "hover:scale-105" : "hover:scale-95"
+      }`}
     >
       <Link href={paths.blurbIDPage(blurb.id)}>
-        <div className="relative overflow-hidden rounded-xl">
+        <div className="relative overflow-hidden rounded-lg sm:rounded-xl">
           <AspectRatio ratio={16 / 9}>
             <Image
               src={blurb.image}
-              alt="Blurb image"
+              alt={blurb.title}
               fill
               quality={50}
+              sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
               className="h-full w-full object-cover shadow-inner brightness-[80%]"
+              priority={false}
             />
           </AspectRatio>
 
-          <div className="absolute bottom-0 left-0 flex flex-col items-start justify-start gap-4 p-4">
+          <div className="absolute bottom-0 left-0 flex flex-col items-start justify-start gap-2 p-2 sm:gap-4 sm:p-4">
             <Author user={blurb.author} />
-            <div className="flex items-center justify-end gap-4 rounded-xl bg-black bg-opacity-70 p-1 px-2 font-josefin text-zinc-200 opacity-80">
+            <div className="text-md flex items-center justify-end gap-2 rounded-lg bg-black bg-opacity-70 p-1 px-2 font-josefin text-zinc-200 opacity-80 sm:gap-4 sm:rounded-xl sm:text-sm md:text-base">
               <h4>
                 {new Date(blurb.createdAt).toLocaleDateString("en-US", {
                   month: "numeric",
@@ -52,11 +56,11 @@ export default function DisplayBlurb({
         </div>
 
         <div className="mt-2">
-          <h2 className="font-noto text-xl text-foreground">{blurb.title}</h2>
-          <h3 className="font-noto text-muted-foreground">
-            {blurb.description.length > 50
-              ? `${blurb.description.substring(0, 50)}...`
-              : blurb.description}
+          <h2 className="text-md line-clamp-2 font-noto text-foreground sm:text-lg md:text-xl">
+            {blurb.title}
+          </h2>
+          <h3 className="line-clamp-2 font-noto text-base text-muted-foreground sm:text-base">
+            {blurb.description}
           </h3>
         </div>
       </Link>

@@ -15,31 +15,42 @@ const stats: string[] = await getStats();
 export const revalidate = 43200;
 
 export default async function Home() {
-  console.log(blurbs);
   return (
-    <div className="">
+    <div className="px-4 sm:px-6 md:px-0">
       <HeroBlurb blurb={blurbs[0]} />
-      <div className="mt-16">
+
+      {/* Top Blurbs Section */}
+      <div className="mt-10 sm:mt-12 md:mt-16">
         <div className="flex items-center justify-between">
-          <h1 className="font-josefin text-3xl">Top Blurbs</h1>
+          <h1 className="font-josefin text-2xl sm:text-2xl md:text-3xl">
+            Top Blurbs
+          </h1>
           <Link
             href={paths.explorePage()}
             className="border-b-primary hover:border-b"
           >
-            <span className="flex items-center gap-2 text-primary">
-              See all <ArrowRight size={20} />
+            <span className="flex items-center gap-1 text-sm text-primary sm:gap-2 sm:text-base">
+              See all <ArrowRight size={16} className="sm:h-5 sm:w-5" />
             </span>
           </Link>
         </div>
-        <div className="mt-4 grid w-full grid-cols-3 gap-10">
+
+        {/* Responsive grid for blurbs */}
+        <div className="mt-4 grid w-full grid-cols-1 gap-10 sm:gap-12 md:gap-14 lg:grid-cols-3">
           {blurbs.slice(1).map((blurb: Blurb) => (
             <DisplayBlurb blurb={blurb} key={blurb.id} scale={true} />
           ))}
         </div>
       </div>
-      <div className="mt-16">
-        <h1 className="font-josefin text-3xl">Community Highlights</h1>
-        <div className="mt-4 grid grid-cols-2 gap-5">
+
+      {/* Community Highlights Section */}
+      <div className="mt-10 sm:mt-12 md:mt-16">
+        <h1 className="font-josefin text-2xl sm:text-2xl md:text-3xl">
+          Community Highlights
+        </h1>
+
+        {/* Responsive grid for stats */}
+        <div className="mt-4 grid grid-cols-1 gap-5 md:grid-cols-2">
           <DataPoint
             colour="blue"
             dataValue={stats[0]}
@@ -48,7 +59,8 @@ export default async function Home() {
           >
             Total Number of Users
           </DataPoint>
-          <div className="grid grid-rows-2 gap-5">
+
+          <div className="mt-5 grid grid-cols-1 gap-5 sm:grid-rows-2 md:mt-0">
             <DataPoint
               colour="green"
               position="bottom"
