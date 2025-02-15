@@ -59,14 +59,8 @@ export default async function Home() {
           >
             Total Number of Users
           </DataPoint>
-
-          <div className="mt-5 grid grid-cols-1 gap-5 sm:grid-rows-2 md:mt-0">
-            <DataPoint
-              colour="green"
-              position="bottom"
-              dataValue={stats[1]}
-              size="medium"
-            >
+          <div className="grid grid-cols-1 gap-5 sm:grid-rows-2">
+            <DataPoint colour="green" dataValue={stats[1]} size="medium">
               Unique Blurbs Written
             </DataPoint>
             <DataPoint
