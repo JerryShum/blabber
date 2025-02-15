@@ -21,7 +21,7 @@ export default function ExploreBlurbs({
         <h2 className="text-2xl text-secondary-foreground">{title}</h2>
         <p className="text-lg text-muted-foreground">{description}</p>
       </div>
-      <div className="mt-5 w-full px-10">
+      <div className="mt-5 w-full md:px-10">
         <BlurbCarousel blurbs={blurbs} />
       </div>
     </div>
