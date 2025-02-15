@@ -30,14 +30,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${josefinSans.variable} ${notoSans.variable} antialiased`}
+        className={`${josefinSans.variable} ${notoSans.variable} flex min-h-screen flex-col antialiased`}
       >
         <Providers>
-          <div className="xl:px-30 relative sm:px-10 md:px-20 2xl:px-60">
-            <Navbar />
-            <Toaster />
-            <main>{children}</main>
-            <Footer />
+          <div className="flex min-h-screen flex-col">
+            <div className="mx-auto w-full max-w-[2000px] px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 2xl:px-32">
+              <Navbar />
+              <Toaster />
+              <main className="flex-grow py-4 sm:py-6 md:py-8">{children}</main>
+              <Footer />
+            </div>
           </div>
         </Providers>
       </body>
