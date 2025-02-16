@@ -1,4 +1,4 @@
-![Blabber Banner](public/readme/Blabber%20Banner.png.png)
+![Blabber Banner](public/readme/blabber_banner.png)
 
 # Blabber
 
