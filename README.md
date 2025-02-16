@@ -43,6 +43,9 @@ npx prisma migrate dev
 npm run dev
 ```
 
+5. Open your browser and navigate to `http://localhost:3000`
+6. Have fun!
+
 ## What I Learned
 
 Through Blabber, I gained practical experience with:

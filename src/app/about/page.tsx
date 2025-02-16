@@ -22,16 +22,17 @@ export default function AboutPage() {
 
         {/* Hero Image */}
         <div className="px-4 md:px-0">
-          <AspectRatio ratio={21 / 9} className="md:px-10 lg:px-40">
+          <div className="relative aspect-[16/9] xl:aspect-[16/6]">
             <Image
               src={talking}
               alt="People talking in a forest"
               className="h-full w-full rounded-lg object-cover object-bottom"
               fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
               quality={100}
               priority
             />
-          </AspectRatio>
+          </div>
         </div>
       </div>
 
