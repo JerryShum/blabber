@@ -1,3 +1,5 @@
+![Blabber Banner](public/readme/Blabber%20Banner.png.png)
+
 # Blabber
 
 A modern blogging platform built with Next.js that allows users to share their thoughts and stories.
@@ -64,3 +66,25 @@ Through Blabber, I gained practical experience with:
 - **Commenting System** - Add a commenting system to allow users to engage with blog posts and discussions.
 - **Search Functionality** - Implement a search functionality to allow users to find specific blog posts.
 - **Analytics** - Add analytics to track user engagement and blog post performance.
+
+## Screenshots
+
+### Read Blurb Page
+
+![Desktop Read Blurb Page](public/readme/blabber_blurb_fullsize.png)
+![Mobile Read Blurb Page](public/readme/blabber_blurb_mobile.png)
+
+### Homepage
+
+![Desktop Homepage](public/readme/blabber_home_fullsize.png)
+![Mobile Homepage](public/readme/blabber_home_mobile.png)
+
+### Explore Page
+
+![Desktop Explore Page](public/readme/blabber_explore_fullsize.png)
+![Mobile Explore Page](public/readme/blabber_explore_mobile.png)
+
+### About Page
+
+![Desktop About Page](public/readme/blabber_about_fullsize.png)
+![Mobile About Page](public/readme/blabber_about_mobile.png)
