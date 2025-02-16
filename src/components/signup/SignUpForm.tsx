@@ -1,60 +1,76 @@
-import Link from 'next/link';
-import GithubButton from '../common/GithubButton';
-import GoogleButton from '../common/GoogleButton';
-import { Button } from '../UI/button';
-import { Input } from '../UI/input';
-import { Label } from '../UI/label';
+import Link from "next/link";
+import GithubButton from "../common/GithubButton";
+import GoogleButton from "../common/GoogleButton";
+import { Button } from "../UI/button";
+import { Input } from "../UI/input";
+import { Label } from "../UI/label";
 
 export default function SignUpForm() {
-   return (
-      <div className="font-josefin w-80">
-         <h2 className="text-4xl font-semibold text-left">Sign Up</h2>
-         <h4 className="text-sm mb-6 text-red-400">
-            *Sign Up through Google/Email is currently not available.
-         </h4>
-         <div className="flex flex-col gap-4 mb-6">
-            <GithubButton />
-            <GoogleButton />
-         </div>
-         <h4 className="text-center text-muted-foreground">or</h4>
-         {/* Email/Password Form */}
-         <form className="mb-6">
-            <div className="flex flex-col gap-4">
-               <div>
-                  <Label htmlFor="email" className="text-lg tracking-wider">
-                     Email
-                  </Label>
-                  <Input
-                     type="email"
-                     id="email"
-                     placeholder="Email"
-                     name="email"
-                     className="rounded-xl"
-                  />
-               </div>
-               <div>
-                  <Label htmlFor="password" className="text-lg tracking-wider">
-                     Password
-                  </Label>
-                  <Input
-                     type="password"
-                     id="password"
-                     placeholder="Password"
-                     name="password"
-                     className="rounded-xl"
-                  />
-               </div>
-               <Button className="rounded-xl" size={'lg'} disabled>
-                  <span className="font-semibold">Sign Up</span>
-               </Button>
-            </div>
-         </form>
-         <div className="w-full border-t text-center py-2 font-noto text-xs text-muted-foreground">
-            Already have an account?{' '}
-            <Link href={'/login'} className="underline text-primary">
-               Log In
-            </Link>
-         </div>
+  return (
+    <div className="mx-auto w-full max-w-md px-4 font-josefin sm:px-6 md:px-8">
+      <h2 className="mb-2 text-left text-3xl font-semibold sm:text-4xl">
+        Sign Up
+      </h2>
+      <h4 className="mb-6 text-sm text-red-400">
+        *Sign Up through Google/Email is currently not available.
+      </h4>
+
+      <div className="mb-6 flex flex-col gap-4">
+        <GithubButton />
+        <GoogleButton />
       </div>
-   );
+
+      <h4 className="my-4 text-center text-muted-foreground">or</h4>
+
+      <form className="mb-6 w-full">
+        <div className="flex flex-col gap-4">
+          <div className="space-y-2">
+            <Label
+              htmlFor="email"
+              className="block text-base tracking-wider sm:text-lg"
+            >
+              Email
+            </Label>
+            <Input
+              type="email"
+              id="email"
+              placeholder="Email"
+              name="email"
+              className="w-full rounded-xl"
+            />
+          </div>
+
+          <div className="space-y-2">
+            <Label
+              htmlFor="password"
+              className="block text-base tracking-wider sm:text-lg"
+            >
+              Password
+            </Label>
+            <Input
+              type="password"
+              id="password"
+              placeholder="Password"
+              name="password"
+              className="w-full rounded-xl"
+            />
+          </div>
+
+          <Button className="mt-2 w-full rounded-xl" size={"lg"} disabled>
+            <span className="font-semibold">Sign Up</span>
+          </Button>
+        </div>
+      </form>
+
+      <div className="w-full border-t py-4 text-center font-noto text-xs text-muted-foreground sm:text-sm">
+        Already have an account?{" "}
+        <Link
+          href={"/login"}
+          className="text-primary underline transition-colors hover:text-primary/80"
+        >
+          Log In
+        </Link>
+      </div>
+    </div>
+  );
 }
