@@ -13,7 +13,7 @@ export default async function Page({ params }: { params: Params }) {
   console.log(blurb);
 
   return (
-    <div className="mt-20">
+    <div className="mt-10">
       <div className="space-y-2">
         <h1 className="font-josefin text-5xl font-bold">{blurb.title}</h1>
         <h2 className="font-josefin text-xl text-muted-foreground">
@@ -25,26 +25,26 @@ export default async function Page({ params }: { params: Params }) {
         </h3>
       </div>
 
-      <div className="relative mt-6 overflow-hidden rounded-lg">
-        <AspectRatio ratio={16 / 9}>
+      <div className="relative mt-6 overflow-hidden rounded-xl">
+        <div className="aspect-[16/10] lg:aspect-[16/8]">
           <Image
             src={blurb?.image}
-            className="object-cover object-center"
+            className="h-full w-full rounded-xl object-cover shadow-inner brightness-95"
             quality={100}
-            alt="image of interior design"
+            alt="Image of the article"
             fill
           />
-        </AspectRatio>
+        </div>
 
         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4 font-josefin text-white">
-          <div className="flex flex-col gap-4 sm:flex-row sm:justify-end sm:gap-10">
+          <div className="text-md flex gap-4 sm:justify-end sm:gap-10 sm:text-lg">
             <div>
               <p>Written by:</p>
-              <p className="text-xl">{blurb.author.name}</p>
+              <p className="">{blurb.author.name}</p>
             </div>
             <div>
               <p>Published on:</p>
-              <p className="text-xl">
+              <p className="">
                 {new Date(blurb.createdAt).toLocaleDateString()}
               </p>
             </div>
