@@ -5,11 +5,22 @@ import NavLinks from "./NavLinks";
 import SearchBar from "./SearchBar";
 import NavAuth from "./NavAuth";
 import { DarkModeToggle } from "./DarkModeToggle";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isOpen]);
 
   return (
     <nav className="relative px-4 py-3">
@@ -25,30 +36,39 @@ export default function Navbar() {
           </div>
         </div>
 
+        {/* Mobile Navigation Header */}
         <div className="flex items-center justify-between lg:hidden">
           <Logo />
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="rounded-md p-2 hover:bg-gray-100 dark:hover:bg-gray-800"
+            className="rounded-md p-2 transition-colors hover:bg-gray-100 dark:hover:bg-gray-800"
+            aria-label={isOpen ? "Close menu" : "Open menu"}
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
-        {/* Mobile Menu */}
-        {isOpen && (
-          <div className="absolute left-0 right-0 top-full z-50 bg-white py-4 shadow-lg transition-all duration-300 dark:bg-gray-900 lg:hidden">
-            <div className="flex flex-col gap-4">
-              <div className="px-4">
+
+        {/* Half-screen Mobile Menu */}
+        <div
+          className={`fixed inset-y-0 right-0 top-[73px] z-50 w-3/4 transform bg-white transition-transform duration-300 ease-in-out dark:bg-gray-900 lg:hidden ${
+            isOpen ? "translate-x-0" : "translate-x-full"
+          }`}
+        >
+          <div className="flex h-full flex-col overflow-y-auto">
+            <div className="flex flex-col space-y-8 p-6">
+              <div className="w-full">
                 <SearchBar />
               </div>
-              <NavLinks />
-              <div className="flex items-center justify-between px-4">
+              <div className="flex flex-col space-y-4">
+                <NavLinks mobile={true} />
+              </div>
+              <div className="flex items-center justify-center gap-10">
                 <DarkModeToggle />
                 <NavAuth />
               </div>
             </div>
           </div>
-        )}
+        </div>
       </div>
     </nav>
   );

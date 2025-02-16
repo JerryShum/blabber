@@ -2,10 +2,14 @@ import paths from "@/paths";
 import Link from "next/link";
 import { buttonVariants } from "../UI/button";
 
-export default function NavLinks() {
+interface NavLinksProps {
+  mobile?: boolean;
+}
+
+export default function NavLinks({ mobile }: NavLinksProps) {
   return (
     <nav>
-      <ul className="flex items-center gap-1">
+      <ul className={`flex ${mobile && "flex-col"} items-center gap-1`}>
         <li>
           <Link
             className={buttonVariants({ variant: "link" })}
