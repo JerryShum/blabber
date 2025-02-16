@@ -71,20 +71,52 @@ Through Blabber, I gained practical experience with:
 
 ### Read Blurb Page
 
-![Desktop Read Blurb Page](public/readme/blabber_blurb_fullsize.png)
-![Mobile Read Blurb Page](public/readme/blabber_blurb_mobile.png)
+<table>
+  <tr>
+    <td><img src="public/readme/blabber_blurb_fullsize.png" width="600"></td>
+    <td><img src="public/readme/blabber_blurb_mobile.png" width="200"></td>
+  </tr>
+  <tr>
+    <td align="center"><em>Desktop View</em></td>
+    <td align="center"><em>Mobile View</em></td>
+  </tr>
+</table>
 
 ### Homepage
 
-![Desktop Homepage](public/readme/blabber_home_fullsize.png)
-![Mobile Homepage](public/readme/blabber_home_mobile.png)
+<table>
+  <tr>
+    <td><img src="public/readme/blabber_home_fullsize.png" width="600"></td>
+    <td><img src="public/readme/blabber_home_mobile.png" width="200"></td>
+  </tr>
+  <tr>
+    <td align="center"><em>Desktop View</em></td>
+    <td align="center"><em>Mobile View</em></td>
+  </tr>
+</table>
 
 ### Explore Page
 
-![Desktop Explore Page](public/readme/blabber_explore_fullsize.png)
-![Mobile Explore Page](public/readme/blabber_explore_mobile.png)
+<table>
+  <tr>
+    <td><img src="public/readme/blabber_explore_fullsize.png" width="600"></td>
+    <td><img src="public/readme/blabber_explore_mobile.png" width="200"></td>
+  </tr>
+  <tr>
+    <td align="center"><em>Desktop View</em></td>
+    <td align="center"><em>Mobile View</em></td>
+  </tr>
+</table>
 
 ### About Page
 
-![Desktop About Page](public/readme/blabber_about_fullsize.png)
-![Mobile About Page](public/readme/blabber_about_mobile.png)
+<table>
+  <tr>
+    <td><img src="public/readme/blabber_about_fullsize.png" width="600"></td>
+    <td><img src="public/readme/blabber_about_mobile.png" width="200"></td>
+  </tr>
+  <tr>
+    <td align="center"><em>Desktop View</em></td>
+    <td align="center"><em>Mobile View</em></td>
+  </tr>
+</table>
