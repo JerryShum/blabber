@@ -1,9 +1,27 @@
+<!-- TOC start (generated with https://github.com/derlin/bitdowntoc) -->
+
+- [Blabber](#blabber)
+   * [Technologies Used](#technologies-used)
+   * [Key Features](#key-features)
+   * [Development Setup](#development-setup)
+   * [What I Learned](#what-i-learned)
+   * [Future Improvements](#future-improvements)
+   * [Screenshots](#screenshots)
+      + [Read Blurb Page](#read-blurb-page)
+      + [Homepage](#homepage)
+      + [Explore Page](#explore-page)
+      + [About Page](#about-page)
+
+<!-- TOC end -->
+
 ![Blabber Banner](public/readme/blabber_banner.png)
 
+<!-- TOC --><a name="blabber"></a>
 # Blabber
 
 A modern and minimalistic blogging platform built with Next.js that allows users to share their thoughts and stories.
 
+<!-- TOC --><a name="technologies-used"></a>
 ## Technologies Used
 
 - **Next.js 15** - App Router, Server Components, and Server Actions
@@ -15,6 +33,7 @@ A modern and minimalistic blogging platform built with Next.js that allows users
 - **Migrations** - Managed database schema changes through Prisma migrations
 - **Content Management** - Built features for creating and managing blog posts with titles, descriptions, and estimated read times
 
+<!-- TOC --><a name="key-features"></a>
 ## Key Features
 
 - User authentication
@@ -24,6 +43,7 @@ A modern and minimalistic blogging platform built with Next.js that allows users
 - Type-safe form submissions
 - Dark mode support
 
+<!-- TOC --><a name="development-setup"></a>
 ## Development Setup
 
 1. Clone the repository
@@ -48,6 +68,7 @@ npm run dev
 5. Open your browser and navigate to `http://localhost:3000`
 6. Have fun!
 
+<!-- TOC --><a name="what-i-learned"></a>
 ## What I Learned
 
 Through Blabber, I gained practical experience with:
@@ -60,6 +81,7 @@ Through Blabber, I gained practical experience with:
 - **TypeScript** - I leveraged strong typing for better code reliability and maintainability.
 - **Content Management** - I built features for creating and managing blog posts, including titles, descriptions, and estimated read times.
 
+<!-- TOC --><a name="future-improvements"></a>
 ## Future Improvements
 
 - **User Profiles** - Implement user profiles to allow users to customize their profiles and manage their blogs.
@@ -67,8 +89,10 @@ Through Blabber, I gained practical experience with:
 - **Search Functionality** - Implement a search functionality to allow users to find specific blog posts.
 - **Analytics** - Add analytics to track user engagement and blog post performance.
 
+<!-- TOC --><a name="screenshots"></a>
 ## Screenshots
 
+<!-- TOC --><a name="read-blurb-page"></a>
 ### Read Blurb Page
 
 <table>
@@ -82,6 +106,7 @@ Through Blabber, I gained practical experience with:
   </tr>
 </table>
 
+<!-- TOC --><a name="homepage"></a>
 ### Homepage
 
 <table>
@@ -95,6 +120,7 @@ Through Blabber, I gained practical experience with:
   </tr>
 </table>
 
+<!-- TOC --><a name="explore-page"></a>
 ### Explore Page
 
 <table>
@@ -108,6 +134,7 @@ Through Blabber, I gained practical experience with:
   </tr>
 </table>
 
+<!-- TOC --><a name="about-page"></a>
 ### About Page
 
 <table>
