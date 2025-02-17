@@ -17,9 +17,6 @@
       + [Homepage](#homepage)
       + [Explore Page](#explore-page)
       + [About Page](#about-page)
-   * [And a table of contents](#and-a-table-of-contents)
-   * [On   the right](#on-the-right)
-   * [Use the [TOC]](#use-the-toc)
 
 <!-- TOC end -->
 
