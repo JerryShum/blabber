@@ -2,9 +2,9 @@
 
 # Blabber
 
-A modern blogging platform built with Next.js that allows users to share their thoughts and stories.
+A modern and minimalistic blogging platform built with Next.js that allows users to share their thoughts and stories.
 
-## Technologies & Skills Learned
+## Technologies Used
 
 - **Next.js 15** - App Router, Server Components, and Server Actions
 - **Authentication** - Implemented user authentication using auth.js along with some forms of session management
