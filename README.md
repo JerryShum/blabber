@@ -1,7 +1,13 @@
+# Paste Your Document In Here
+
+
+![Blabber Banner](public/readme/blabber_banner.png)
+
+# Table of Contents
 <!-- TOC start (generated with https://github.com/derlin/bitdowntoc) -->
 
 - [Blabber](#blabber)
-   * [Technologies Used](#technologies-used)
+   * [Technologies & Skills Learned](#technologies-skills-learned)
    * [Key Features](#key-features)
    * [Development Setup](#development-setup)
    * [What I Learned](#what-i-learned)
@@ -11,18 +17,19 @@
       + [Homepage](#homepage)
       + [Explore Page](#explore-page)
       + [About Page](#about-page)
+   * [And a table of contents](#and-a-table-of-contents)
+   * [On   the right](#on-the-right)
+   * [Use the [TOC]](#use-the-toc)
 
 <!-- TOC end -->
-
-![Blabber Banner](public/readme/blabber_banner.png)
 
 <!-- TOC --><a name="blabber"></a>
 # Blabber
 
-A modern and minimalistic blogging platform built with Next.js that allows users to share their thoughts and stories.
+A modern blogging platform built with Next.js that allows users to share their thoughts and stories.
 
-<!-- TOC --><a name="technologies-used"></a>
-## Technologies Used
+<!-- TOC --><a name="technologies-skills-learned"></a>
+## Technologies & Skills Learned
 
 - **Next.js 15** - App Router, Server Components, and Server Actions
 - **Authentication** - Implemented user authentication using auth.js along with some forms of session management
@@ -147,3 +154,19 @@ Through Blabber, I gained practical experience with:
     <td align="center"><em>Mobile View</em></td>
   </tr>
 </table>
+
+
+<!-- TOC --><a name="and-a-table-of-contents"></a>
+## And a table of contents
+
+will be generated
+
+<!-- TOC --><a name="on-the-right"></a>
+## On   the right
+
+side of this page.
+
+<!-- TOC --><a name="use-the-toc"></a>
+## Use the [TOC]
+
+placeholder to control where the TOC will appear
