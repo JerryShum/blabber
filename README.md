@@ -156,17 +156,3 @@ Through Blabber, I gained practical experience with:
 </table>
 
 
-<!-- TOC --><a name="and-a-table-of-contents"></a>
-## And a table of contents
-
-will be generated
-
-<!-- TOC --><a name="on-the-right"></a>
-## On   the right
-
-side of this page.
-
-<!-- TOC --><a name="use-the-toc"></a>
-## Use the [TOC]
-
-placeholder to control where the TOC will appear
