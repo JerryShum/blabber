@@ -1,6 +1,3 @@
-# Paste Your Document In Here
-
-
 ![Blabber Banner](public/readme/blabber_banner.png)
 
 # Table of Contents
